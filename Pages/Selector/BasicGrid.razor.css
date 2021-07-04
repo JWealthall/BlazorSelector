@@ -1,0 +1,19 @@
+﻿.selector-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    background-color: #54595F;
+    padding: 1rem;
+    grid-gap: 1rem;
+    font-size: 1.5rem;
+    margin: 1rem;
+    border-radius: 1.5rem;
+}
+
+.selector-grid-item {
+    background-color: #00A683;
+    color: white;
+    border: 0.3rem solid rgba(0, 0, 0, 0.8);
+    border-radius: 1rem;
+    padding: 1rem;
+    text-align: center;
+}

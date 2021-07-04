@@ -1,0 +1,62 @@
+﻿@layout EmptyLayout
+@page "/Selector/BasicGrid"
+@inject IPeopleService peopleService;
+
+<div class="row pt-3">
+    <button class="btn btn-lg btn-primary col-3 mx-auto" @onclick="RandomSelection">Run Selection</button>
+</div>
+<div class="selector-grid">
+    @foreach (var ns in _nameStyles)
+    {
+        <div class="selector-grid-item" style="@ns.Style">@ns.Name</div>
+    }
+</div>
+<div class="row pt-3">
+    <a class="btn btn-lg btn-primary col-3 mx-auto" href="">
+        <span class="oi oi-home" aria-hidden="true"></span> Home
+    </a>
+
+</div>
+@code {
+    private List<string> _names = null;
+    private List<NameStyle> _nameStyles = new();
+    private Random _rnd = new Random();
+
+    protected override async Task OnInitializedAsync()
+    {
+        _names = await peopleService.GetNames();
+        _names.Shuffle();
+        foreach (var name in _names) _nameStyles.Add(new NameStyle(name, ""));
+        await base.OnInitializedAsync();
+    }
+
+    private async void RandomSelection()
+    {
+        _nameStyles.Shuffle();
+        foreach (var nameStyle in _nameStyles)
+        {
+            nameStyle.Style = "";
+        }
+        var delay = 10;
+        while (delay < 2000)
+        {
+            var num = _rnd.Next(_names.Count);
+            _nameStyles[num].Style = "background-color: #0366d6; animation-name: colorChange; animation-duration: " + delay + "ms;";
+            StateHasChanged();
+            await Task.Delay(delay);
+            _nameStyles[num].Style = "";
+            delay += delay / 10;
+            //_nameStyles.Shuffle();
+        }
+        var target = _nameStyles[_rnd.Next(_names.Count)];
+        target.Style = "background-color: #54595F; animation-name: selectedItem; animation-duration: 500ms; animation-iteration-count: infinite; animation-direction: alternate;";
+        StateHasChanged();
+    }
+
+    private class NameStyle
+    {
+        public NameStyle(string name, string style) { Name = name; Style = style; }
+        public string Name { get; }
+        public string Style { get; set; }
+    }
+}
