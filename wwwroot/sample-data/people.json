@@ -1,62 +1,80 @@
-[
-  {
-    "initials": "CE",
-    "fullname": null,
-    "nickname": null
-  },
-  {
-    "initials": "CM",
-    "fullname": null,
-    "nickname": null
-  },
-  {
-    "initials": "CP",
-    "fullname": null,
-    "nickname": null
-  },
-  {
-    "initials": "JL",
-    "fullname": null,
-    "nickname": null
-  },
-  {
-    "initials": "JM",
-    "fullname": null,
-    "nickname": null
-  },
-  {
-    "initials": "JO",
-    "fullname": null,
-    "nickname": null
-  },
-  {
-    "initials": "JW",
-    "fullname": "John Wealthall",
-    "nickname": null
-  },
-  {
-    "initials": "LC",
-    "fullname": null,
-    "nickname": null
-  },
-  {
-    "initials": "SO",
-    "fullname": null,
-    "nickname": null
-  },
-  {
-    "initials": "SP",
-    "fullname": null,
-    "nickname": null
-  },
-  {
-    "initials": "TM",
-    "fullname": null,
-    "nickname": null
-  },
-  {
-    "initials": "VT",
-    "fullname": null,
-    "nickname": null
-  }
-]
+{
+  "updated": "2021-08-31",
+  "people": [
+    {
+      "initials": "CE",
+      "fullname": "Chris Egan",
+      "nickname": null
+    },
+    {
+      "initials": "CM",
+      "fullname": "Ciaran McKay",
+      "nickname": null
+    },
+    {
+      "initials": "CP",
+      "fullname": "Carl Pappenheim",
+      "nickname": null
+    },
+    {
+      "initials": "DK",
+      "fullname": "Deepak Kumar",
+      "nickname": null
+    },
+    {
+      "initials": "DM",
+      "fullname": "Daniel McKiernan",
+      "nickname": null
+    },
+    {
+      "initials": "JL",
+      "fullname": "Jess Lailey",
+      "nickname": null
+    },
+    {
+      "initials": "JM",
+      "fullname": "Jordan McCann",
+      "nickname": null
+    },
+    {
+      "initials": "JO",
+      "fullname": "James O'Hara",
+      "nickname": null
+    },
+    {
+      "initials": "JW",
+      "fullname": "John Wealthall",
+      "nickname": null
+    },
+    {
+      "initials": "LC",
+      "fullname": "Liam Cassidy",
+      "nickname": null
+    },
+    {
+      "initials": "PC",
+      "fullname": "Peter Carter",
+      "nickname": null
+    },
+    {
+      "initials": "SP",
+      "fullname": "Simon Papworth",
+      "nickname": null
+    },
+    {
+      "initials": "SA",
+      "fullname": "Sumathi Abhishek",
+      "nickname": null
+    },
+    {
+      "initials": "TM",
+      "fullname": "Tom Mills",
+      "nickname": null
+    },
+    {
+      "initials": "VT",
+      "fullname": "Vilius Tarasevicius",
+      "nickname": null
+    }
+  ]
+}

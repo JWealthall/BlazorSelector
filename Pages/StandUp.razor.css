@@ -1,0 +1,8 @@
+﻿.standup {
+    display: flex;
+}
+
+.left-panel {
+    width: 15rem;
+    max-width: 15rem;
+}

@@ -1,0 +1,38 @@
+﻿@page "/manage"
+@inject IPeopleService _peopleService;
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Available</th>
+            <th>Selectable</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var person in _people)
+        {
+            <tr>
+                <th>@person.FullName</th>
+                <td><input type="checkbox" @bind="@person.Available" /></td>
+                <td><input type="checkbox" @bind="@person.AllowSelection" /></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<button class="btn btn-primary" @onclick="Save">Save</button>
+
+@code {
+    private Person[] _people = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _people = await _peopleService.GetPeople();
+    }
+
+    private async Task Save()
+    {
+        await _peopleService.SavePeople();
+    }
+}

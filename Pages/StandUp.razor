@@ -1,0 +1,62 @@
+﻿@layout EmptyLayout
+@page "/standup"
+@inject IPeopleService _peopleService;
+
+<div class="standup">
+    <div class="left-panel ml-3">
+        <div class="row pt-3">
+            <button class="btn btn-lg btn-primary btn-block" @onclick="Randomize">Randomize</button>
+        </div>
+
+        @if (_names != null & _names?.Count > 0)
+        {
+            <div class="row pt-3">
+                @foreach (var name in _names)
+                {
+                    <div class="btn btn-primary btn-block mx-4">@name</div>
+                }
+            </div>
+        }
+        
+        @if (_unavailable != null & _unavailable?.Count > 0)
+        {
+            <div class="row pt-3">
+                <label class="d-block mx-auto">Unavailable</label>
+                @foreach (var name in _unavailable)
+                {
+                    <div class="btn btn-secondary btn-block btn-sm mx-4">@name</div>
+                }
+            </div>
+        }
+
+        <div class="row pt-3">
+            <a class="btn btn-lg btn-primary btn-block" href="manage">
+                @*<span class="oi oi-home" aria-hidden="true"></span>*@ Manage
+            </a>
+        </div>
+
+        <div class="row pt-3">
+            <a class="btn btn-lg btn-primary btn-block" href="">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </a>
+        </div>
+
+    </div>
+</div>
+
+@code {
+    private List<string> _names = null;
+    private List<string> _unavailable = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _names = await _peopleService.GetAvailable();
+        Randomize();
+        _unavailable = await _peopleService.GetUnavailable();
+    }
+
+    private void Randomize()
+    {
+        _names?.Shuffle();
+    }
+}
