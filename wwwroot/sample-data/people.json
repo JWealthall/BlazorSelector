@@ -1,5 +1,5 @@
 {
-  "updated": "2021-08-31",
+  "updated": "2021-08-08",
   "people": [
     {
       "initials": "CE",
@@ -24,6 +24,11 @@
     {
       "initials": "DM",
       "fullname": "Daniel McKiernan",
+      "nickname": null
+    },
+    {
+      "initials": "IB",
+      "fullname": "Iria Blanco",
       "nickname": null
     },
     {

@@ -1,0 +1,308 @@
+﻿<h3>Temp</h3>
+<style>
+    .main-box {
+        width: 70px;
+        height: 30px;
+        border: 1px;
+        border-color: black;
+        border-style: solid;
+        padding: 1px;
+        /* Grid container stuff */
+        display: grid;
+        grid-template-columns: auto auto auto auto auto auto;
+        grid-column-gap: 1px;
+    }
+
+    .item {
+        /* background-color: blue; */
+        position: relative
+    }
+
+    .inner-item {
+        background-color: blue;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .item:hover .inner-item2 {
+        background-color: dimgrey;
+        position: absolute;
+        left: 45%;
+        width: 10%;
+        height: 100%;
+        border-radius: 10%;
+    }
+
+    .has-overflow {
+        overflow: visible;
+    }
+
+    .item .inner-item3 {
+        display: none;
+    }
+
+    .item:hover .inner-item3 {
+        background-color: dimgrey;
+        position: absolute;
+        left: 45%;
+        border-radius: 10%;
+        top: 100%;
+        z-index: 10;
+        display: block;
+    }
+</style>
+
+    <div class="main-box">
+        <div class="item">
+            <div class="inner-item" style="height: 70%; width: 100%;"></div>
+            <div class="inner-item2" title="70"></div>
+        </div>
+        <div class="item">
+            <div class="inner-item" style="height: 0%; width: 100%;"></div>
+            <div class="inner-item2" title="0"></div>
+        </div>
+        <div class="item">
+            <div class="inner-item" style="height: 23.333%; width: 100%;"></div>
+            <div class="inner-item2" title="23.3"></div>
+        </div>
+        <div class="item">
+            <div class="inner-item" style="height: 100%; width: 100%;"></div>
+            <div class="inner-item2" title="100"></div>
+        </div>
+        <div class="item">
+            <div class="inner-item" style="height: 33%; width: 100%;"></div>
+            <div class="inner-item2" title="33"></div>
+        </div>
+        <div class="item">
+            <div class="inner-item" style="height: 90%; width: 100%;"></div>
+            <div class="inner-item2" title="90"></div>
+        </div>
+    </div>
+    <div class="main-box has-overflow">
+        <div class="item">
+            <div class="inner-item" style="height: 70%; width: 100%;"></div>
+            <div class="inner-item2" title="70"></div>
+            <div class="inner-item3">70</div>
+        </div>
+        <div class="item">
+            <div class="inner-item" style="height: 0%; width: 100%;"></div>
+            <div class="inner-item2" title="0"></div>
+        </div>
+        <div class="item">
+            <div class="inner-item" style="height: 23.333%; width: 100%;"></div>
+            <div class="inner-item2" title="23.3"></div>
+        </div>
+        <div class="item">
+            <div class="inner-item" style="height: 100%; width: 100%;"></div>
+            <div class="inner-item2" title="100"></div>
+        </div>
+        <div class="item">
+            <div class="inner-item" style="height: 33%; width: 100%;"></div>
+            <div class="inner-item2" title="33"></div>
+        </div>
+        <div class="item">
+            <div class="inner-item" style="height: 90%; width: 100%;"></div>
+            <div class="inner-item2" title="90"></div>
+        </div>
+    </div>
+
+    <style>
+        .lettergrid {
+            background-color: black;
+            width: 100%;
+            /* position: absolute; */
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+            grid-column-gap: 1px;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .pixel {
+            /* width: 100%;
+            height: 100%; */
+            padding-top: 100%;
+            margin: 1px;
+            border-color: dimgray;
+            border-style: solid;
+            border-radius: 30%;
+        }
+
+        .pixel-on {
+            background-color: springgreen;
+        }
+    </style>
+    <div class="lettergrid">
+        <div class="pixel pixel-on">1</div>
+        <div class="pixel pixel-on">2</div>
+        <div class="pixel pixel-on">3</div>
+        <div class="pixel pixel-on">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+        <div class="pixel">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+
+        <div class="pixel pixel-on">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel pixel-on">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+        <div class="pixel">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+
+        <div class="pixel pixel-on">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel pixel-on">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+        <div class="pixel">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+
+        <div class="pixel pixel-on">1</div>
+        <div class="pixel pixel-on">2</div>
+        <div class="pixel pixel-on">3</div>
+        <div class="pixel pixel-on">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+        <div class="pixel">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+
+        <div class="pixel pixel-on">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel pixel-on">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+        <div class="pixel">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+
+        <div class="pixel pixel-on">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel pixel-on">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+        <div class="pixel">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+
+        <div class="pixel pixel-on">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel pixel-on">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+        <div class="pixel">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+
+        <div class="pixel">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+        <div class="pixel">1</div>
+        <div class="pixel">2</div>
+        <div class="pixel">3</div>
+        <div class="pixel">4</div>
+        <div class="pixel">5</div>
+        <div class="pixel">6</div>
+        <div class="pixel">7</div>
+        <div class="pixel">8</div>
+        <div class="pixel">9</div>
+        <div class="pixel">10</div>
+    </div>
+@code {
+
+}

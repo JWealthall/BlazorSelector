@@ -1,0 +1,125 @@
+﻿@layout EmptyLayout
+@page "/Selector/DotMatrix"
+@using System.Text
+@inject IPeopleService peopleService;
+
+<div class="row pt-3">
+    <button class="btn btn-lg btn-primary col-3 mx-auto" @onclick="RunSelection">Run Selection</button>
+</div>
+<div class="selector-grid">
+    @foreach (var ns in _nameStyles)
+    {
+        <div class="selector-grid-item" style="@ns.Style">@ns.Name</div>
+    }
+</div>
+@if (_dots != null && _dots.Length > 0)
+{
+    <div class="letter-container">
+        <div class="letter-grid" style="@_gridColumns">
+            @foreach (var isDot in _dots)
+            {
+                if (isDot)
+                {
+                    <div class="letter-pixel letter-pixel-on"></div>
+                }
+                else
+                {
+                    <div class="letter-pixel"></div>
+                }
+            }
+        </div>
+    </div>
+}
+<div class="row pt-3">
+    <label class="mx-auto winner">@_name</label>
+</div>
+<div class="row pt-3">
+    <a class="btn btn-lg btn-primary col-3 mx-auto" href="">
+        <span class="oi oi-home" aria-hidden="true"></span> Home
+    </a>
+
+</div>
+
+@code {
+    private List<string> _names = null;
+    private List<NameStyle> _nameStyles = new();
+    private Random _rnd = new Random();
+    private string _name = "?";
+    private Letters _letters = new();
+    private int _numLetters = 20;
+    private int _numColumns = 150;
+    private string _gridColumns = "";
+    private bool[] _dots = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _numColumns = (_numLetters * 6) - 1;
+        var sb = new StringBuilder("grid-template-columns:", 20 + (_numColumns * 5));
+        for (int i = 0; i < _numColumns; i++)
+        {
+            sb.Append(" 1fr");
+        }
+        sb.Append("; ");
+        _gridColumns = sb.ToString();
+        _dots = new bool[_numColumns * 7];
+        for (var i = 0; i < _dots.Length; i++) _dots[i] = true;
+        MatrixSet("Who will I pick?");
+
+        _names = await peopleService.GetNames();
+        _names.Shuffle();
+        foreach (var name in _names) _nameStyles.Add(new NameStyle(name, ""));
+        await base.OnInitializedAsync();
+    }
+
+    private void MatrixSet(string message)
+    {
+        for (var i = 0; i < _dots.Length; i++) _dots[i] = false;
+        if (string.IsNullOrWhiteSpace(message)) return;
+        if (message.Length > _numLetters) message = message.Substring(0, _numLetters);
+        var offset = message.Length < _numLetters ? (_numLetters - message.Length) * 3 : 0;
+        foreach (var letter in message.ToUpperInvariant())      // TODO: Sort out a lowercase font
+        {
+            if (_letters.LetterMap.ContainsKey(letter.ToString()))
+            {
+                var map = _letters.LetterMap[letter.ToString()];
+                var lineOffset = offset;
+                foreach (var line in map)
+                {
+                    var dotOffset = 0;
+                    foreach (var dot in line)
+                    {
+                        _dots[lineOffset + dotOffset] = dot == 'X';
+                        dotOffset++;
+                    }
+                    lineOffset += _numColumns;
+                }
+            }
+            offset += 6;
+        }
+    }
+
+    private async void RunSelection()
+    {
+        _nameStyles.Shuffle();
+        foreach (var nameStyle in _nameStyles)
+        {
+            nameStyle.Style = "";
+        }
+        var delay = 10;
+        while (delay < 2000)
+        {
+            var num = _rnd.Next(_names.Count);
+            _nameStyles[num].Style = "background-color: #0366d6; animation-name: colorChange; animation-duration: " + delay + "ms;";
+            MatrixSet(_nameStyles[num].Name);
+            StateHasChanged();
+            await Task.Delay(delay);
+            _nameStyles[num].Style = "";
+            delay += delay / 10;
+            //_nameStyles.Shuffle();
+        }
+        var target = _nameStyles[_rnd.Next(_names.Count)];
+        target.Style = "background-color: #54595F; animation-name: selectedItem; animation-duration: 500ms; animation-iteration-count: infinite; animation-direction: alternate;";
+        MatrixSet(target.Name);
+        StateHasChanged();
+    }
+}
